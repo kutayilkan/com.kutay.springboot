@@ -17,7 +17,7 @@ public class ProductRestService {
 	@Autowired
 	private IProductService productService;
 	
-	@GetMapping
+	@GetMapping(value="/getAll")
 	public List<Product> getAll(){
 		return productService.getAll();
 	}
@@ -25,10 +25,5 @@ public class ProductRestService {
 	public IProductService getProductService() {
 		return productService;
 	}
-
-	public void setProductService(IProductService productService) {
-		this.productService = productService;
-	}
-	
 
 }

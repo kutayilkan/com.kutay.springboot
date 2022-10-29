@@ -20,8 +20,4 @@ public class ProductService implements IProductService {
 		return productDao.findAll();
 	}
 
-	public void setProductDao(IProductDao productDao) {
-		this.productDao = productDao;
-	}
-
 }
