@@ -4,10 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kutay.springboot.business.abstracts.IProductService;
+import com.kutay.springboot.core.utily.results.DataResult;
+import com.kutay.springboot.core.utily.results.Result;
 import com.kutay.springboot.entities.concretes.Product;
 
 @RestController
@@ -18,12 +22,18 @@ public class ProductRestService {
 	private IProductService productService;
 	
 	@GetMapping(value="/getAll")
-	public List<Product> getAll(){
+	public DataResult<List<Product>> getAll(){
 		return productService.getAll();
 	}
-
-	public IProductService getProductService() {
-		return productService;
+	
+	@PostMapping(value="/add")
+	public Result add(@RequestBody Product product){
+		return productService.add(product);
+	}
+	
+	@PostMapping(value="/update")
+	public Result update(@RequestBody Product product){
+		return productService.update(product);
 	}
 
 }
