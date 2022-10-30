@@ -12,6 +12,9 @@ public interface IProductService {
 
 	Result add(Product product);
 
-	Result update(Product product);
+	DataResult<List<Product>> getByProductNameAndCategoryId(String productName, int categoryId);
 
+	DataResult<List<Product>> getAll(int pageNumber, int pageSize);
+
+	DataResult<List<Product>> getAll(String order);
 }

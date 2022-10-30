@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kutay.springboot.business.abstracts.IProductService;
@@ -31,9 +32,19 @@ public class ProductRestService {
 		return productService.add(product);
 	}
 	
-	@PostMapping(value="/update")
-	public Result update(@RequestBody Product product){
-		return productService.update(product);
+	@GetMapping(value="/getByProductNameAndCategoryId")
+	public Result getByProductNameAndCategoryId(@RequestParam("productName") String productName, int categoryId){
+		return productService.getByProductNameAndCategoryId(productName, categoryId);
+	}
+	
+	@GetMapping(value="/getAllByPagination")
+	public DataResult<List<Product>> getAll(@RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize){
+		return productService.getAll(pageNumber, pageSize);
+	}
+	
+	@GetMapping(value="/getAllBySorted")
+	public DataResult<List<Product>> getAll(@RequestParam String order){
+		return productService.getAll(order);
 	}
 
 }
