@@ -35,7 +35,8 @@ public class ProductService implements IProductService {
 	
 	@Override
 	public DataResult<List<Product>> getByProductNameAndCategoryId(String productName, int categoryId) {
-		return new SuccessDataResult<List<Product>>(productDao.getByProductNameAndCategory_CategoryId(productName, categoryId), "Ürünler listelendi");
+		//return new SuccessDataResult<List<Product>>(productDao.getByProductNameAndCategory_CategoryId(productName, categoryId), "Ürünler listelendi");
+		return null;
 	}
 	
 	@Override
