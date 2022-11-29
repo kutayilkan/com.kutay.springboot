@@ -12,7 +12,7 @@ public class ActivityService implements IActivityService{
 
     @Autowired
     public ActivityService(IActivityRepository activityRepository) {
-        this.activitiyRepository = activityRepository;
+        this.activityRepository = activityRepository;
     }
 
 }
