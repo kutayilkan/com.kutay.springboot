@@ -10,25 +10,26 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@Entity
+@Table(name="activities")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name="countries")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","cities"})
-public class Country {
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","products"})
+public class Activity {
 
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "activity_id")
+    private int activityId;
 
-    @Column(name="country_name")
+    @Column(name = "activity_name")
     @NotBlank
     @NotNull
-    private String countryName;
+    private String activityName;
 
-    @OneToMany(mappedBy = "country")
-    private List<City> cities;
+    @ManyToOne
+    @JoinColumn(name="region_id")
+    private Region region;
 
 }

@@ -10,4 +10,7 @@ public interface ICountryService {
     Result saveCountry(Country country);
 
     DataResult<List<Country>> getAllCountry();
+
+    DataResult<Country> getByCountryId(Integer countryId);
+
 }
