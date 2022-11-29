@@ -18,20 +18,20 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value="/api/datePlanner")
-public class DatePlannerRestService {
+@RequestMapping(value="/api/datePlanner/countryService")
+public class CountryRestService {
 
     @Autowired
     private ICountryService countryService;
 
     // Country
 
-    @PostMapping(value = "saveCountry")
+    @PostMapping(value = "/saveCountry")
     public ResponseEntity<?> saveCountry(@Valid @RequestBody Country country) {
         return ResponseEntity.ok(countryService.saveCountry(country));
     }
 
-    @GetMapping(value = "getAllCountry")
+    @GetMapping(value = "/getAllCountry")
     public DataResult<List<Country>> getAllCountry() {
         return countryService.getAllCountry();
     }
